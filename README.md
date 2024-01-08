@@ -1,14 +1,10 @@
 # VicktorSimonov_infra
 VicktorSimonov Infra repository
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/VicktorSimonov-patch-1
 Yandex.Cloud
 
 Адреса ВМ:
 
-<<<<<<< HEAD
 bastion_IP 51.250.81.107 someinternalhost_IP 10.128.0.17
 
 #Подключение ко внутрненним хостам:
@@ -69,7 +65,3 @@ openvpn3 config-manage --config YC_OTUS1 --allow-compression yes
 
 Подключение
 openvpn3 session-start --config YC_OTUS1
-
-
-
->>>>>>> origin/VicktorSimonov-patch-1
