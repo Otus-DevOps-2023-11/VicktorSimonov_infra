@@ -4,9 +4,9 @@ VicktorSimonov Infra repository
 
 # Адреса ВМ:
 
-bastion_IP 51.250.81.107
+bastion_IP = 51.250.81.107
 
-someinternalhost_IP 10.128.0.17
+someinternalhost_IP = 10.128.0.17
 
 # Подключение ко внутрненним хостам:
 
@@ -36,7 +36,7 @@ alias someinternalhost='ssh -i ~/.ssh/appuser -A -J appuser@51.250.81.107 appuse
 
 для подключения Pritunl:
 Пользователь test
-Пин 123456789
+Пин 6214157507237678334670591556762
 
 # импорт конфигурации OpenVPN
 openvpn3 config-import --config Desktop/cloud-bastion.ovpn --name YC_OTUS1 --persistent
