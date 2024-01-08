@@ -1,6 +1,5 @@
 VicktorSimonov Infra repository
-
-# Yandex.Cloud
+Yandex.Cloud
 
 # Адреса ВМ:
 
