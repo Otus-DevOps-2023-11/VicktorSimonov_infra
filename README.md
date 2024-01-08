@@ -2,40 +2,35 @@
 VicktorSimonov Infra repository
 
 #Connection data
-bastion_IP = 51.250.81.107
-someinternalhost_IP = 10.128.0.17
+bastion_IP = 62.84.121.217
+someinternalhost_IP = 10.129.0.20
 #Сonnect through VPN
 cat << EOF > secret
 test
 6214157507237678334670591556762
 EOF
 sudo openvpn --config cloud-bastion.ovpn --auth-user-pass secret
-ssh -i ~/.ssh/appuser -J appuser@51.250.81.107 appuser@10.128.0.17
+ssh -i ~/.ssh/appuser -J appuser@62.84.121.217 appuser@10.129.0.20
 
 #Create aliases
 1. Config file to ssh
     nano ~/.ssh/config
     Host someinternalhost
-        Hostname 10.128.0.17
+        Hostname 10.129.0.20
         User appuser
         ProxyJump bastion
     Host bastion
         User appuser
-        Hostname 51.250.81.107
+        Hostname 62.84.121.217
 
   ssh someinternalhost
 
 2. Alias "~/.bashrc"
-    echo "alias someinternalhost='ssh -i ~/.ssh/appuser -J appuser@51.250.81.107 appuser@10.128.0.17'" >> ~/.bashrc
+    echo "alias someinternalhost='ssh -i ~/.ssh/appuser -J appuser@62.84.121.217 appuser@10.129.0.20'" >> ~/.bashrc
     source ~/.bashrc
 
 
     someinternalhost
-#Add certificate returned and "nip.io":
-Domain: bast.51.250.81.107.nip.io
 
-Response: {
-    "type": "urn:ietf:params:acme:error:rateLimited",
-    "detail": "Error creating new order :: too many certificates already issued for \"nip.io\". Retry after 2024-01-05T08:00:00Z: see https://letsencrypt.org/docs/rate-limits/",
-    "status": 429
-}
+#Add certificate returned and "nip.io":
+error service
