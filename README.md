@@ -1,4 +1,3 @@
-# VicktorSimonov_infra
 VicktorSimonov Infra repository
 
 Yandex.Cloud
@@ -8,7 +7,8 @@ Yandex.Cloud
 bastion_IP 51.250.81.107
 someinternalhost_IP 10.128.0.17
 
-#Подключение ко внутрненним хостам:
+Подключение ко внутрненним хостам:
+
 
 1) Прозрачное подключение к удаленному хосту через промежуточные:
   ssh -i ~/.ssh/appuser -A -J appuser@51.250.81.107 appuser@10.128.0.17
