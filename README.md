@@ -34,3 +34,9 @@ ssh -i ~/.ssh/appuser -J appuser@62.84.121.217 appuser@10.129.0.20
 
 #Add certificate returned and "nip.io":
 error service
+
+
+#HW4
+
+ testapp_IP = 51.250.65.200
+ testapp_port = 9292
