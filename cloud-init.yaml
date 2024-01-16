@@ -1,0 +1,28 @@
+#cloud-config
+  ssh_authorized_keys:
+    - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXT4SuzVchtnBE/Z7p/rx351e6F74WIe0dMfNoD5dnEf+dZe4tVTdMU8SdjsYpBfjJ+QpRYmfAiorHBiEXOnVYJy6jnW1YMMd++9gEI2tZYbTwZmp3loz71utfPUYxtiiML5dniytwCxJLJIvDmscEYlGo652xz7iBo5bWCDq0J69Dp7/wf4/kP8v8Z45Ep8cBXlZkmko8lZNHiCXlWss9fDwrIzv+m+12DUouPIBXVW+ypQ2JAgp+h5robZ+z3A5ORtrO84g3xlTwLC99Y5urdNMiET1dMgbBmn8wXzOnIAWKxgc7tggSXTVDVBxR4Mx9Ze3mbIa75XS3nwBaSx1XPtHGOjfuksysV3RoYgxEDLViJc/ITqck7PTyY4bej9KhW98VD6Hh7r76yfjiVhtRNFEZUiydUZO6UKqcsCKu6ZklzG/yQrnbhVe+M5N48EloA1IZL7rtkp+X1qxIiM51xADr4AQDfLboSq+6ZZPntY53bCkRi68hZJ2kVBiFUEc= appuser"
+  version: v1
+  package_update: true
+  package_upgarde: true
+  packages:
+    - git
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+    - mongodb
+  users:
+    - default
+    - name: appuser
+      gecos: Simonov Victor
+      groups: sudo
+      shell: /bin/bash
+      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+      lock_passwd: true
+      ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXT4SuzVchtnBE/Z7p/rx351e6F74WIe0dMfNoD5dnEf+dZe4tVTdMU8SdjsYpBfjJ+QpRYmfAiorHBiEXOnVYJy6jnW1YMMd++9gEI2tZYbTwZmp3loz71utfPUYxtiiML5dniytwCxJLJIvDmscEYlGo652xz7iBo5bWCDq0J69Dp7/wf4/kP8v8Z45Ep8cBXlZkmko8lZNHiCXlWss9fDwrIzv+m+12DUouPIBXVW+ypQ2JAgp+h5robZ+z3A5ORtrO84g3xlTwLC99Y5urdNMiET1dMgbBmn8wXzOnIAWKxgc7tggSXTVDVBxR4Mx9Ze3mbIa75XS3nwBaSx1XPtHGOjfuksysV3RoYgxEDLViJc/ITqck7PTyY4bej9KhW98VD6Hh7r76yfjiVhtRNFEZUiydUZO6UKqcsCKu6ZklzG/yQrnbhVe+M5N48EloA1IZL7rtkp+X1qxIiM51xADr4AQDfLboSq+6ZZPntY53bCkRi68hZJ2kVBiFUEc= appuser"
+  runcmd:
+    - cd /home/appuser
+    - git clone -b monolith https://github.com/express42/reddit.git
+    - cd reddit
+    - bundle install
+    - puma -d
