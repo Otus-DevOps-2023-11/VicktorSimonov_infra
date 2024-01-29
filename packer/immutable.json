@@ -1,0 +1,40 @@
+{
+    "variables":
+        {
+        "sa_path": "key.json",
+        "id_source_image": "ubuntu-1604-lts",
+        "id_directory": "b1g5hl1pmb31qtul54oc",
+        "subnet_id": "e9bupg5sjurvg5d608si"
+        },
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `sa_path`}}",
+            "folder_id": "{{user `id_directory`}}",
+            "source_image_family": "{{user `id_source_image`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "image_family": "reddit-full",
+            "ssh_username": "ubuntu",
+            "platform_id": "standard-v1",
+            "subnet_id": "{{user `subnet_id`}}",
+            "use_ipv4_nat": true
+        }
+    ],
+   "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_apps.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "file",
+            "source": "files/puma.service",
+            "destination": "/tmp/puma.service"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/copy_service_file.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
