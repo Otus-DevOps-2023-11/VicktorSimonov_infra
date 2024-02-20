@@ -1,12 +1,11 @@
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-}
+#terraform {
+#  required_providers {
+#    yandex = {
+#      source = "yandex-cloud/yandex"
+#    }
+#  }
+#}
 
-// Configure the Yandex.Cloud provider
 
 #provider "yandex" {
 #  token                    = ""
