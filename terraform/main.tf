@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "app" {
   name  = "reddit-app-${count.index + 1}"
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/ubuntu.pub")}"
+    ssh-keys = "ubuntu:${file(var.public_key_path)}}"
   }
 
   resources {
