@@ -53,7 +53,7 @@ resource "yandex_compute_instance" "app" {
     user  = "ubuntu"
     agent = false
     # путь до приватного ключа
-    private_key = file(var.ptivat_key_path)
+    private_key = file(var.ptivate_key_path)
   }
   provisioner "file" {
     source      = "files/puma.service"
