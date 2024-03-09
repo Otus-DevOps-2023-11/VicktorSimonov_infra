@@ -29,7 +29,7 @@ provider "yandex" {
 
 module "app" {
   source           = "../modules/app"
-  env              = var.env
+#  env              = var.env
   depends_on       = [module.db]
   private_key_path = var.private_key_path
   public_key_path  = var.public_key_path
@@ -39,7 +39,7 @@ module "app" {
 }
 module "db" {
   source           = "../modules/db"
-  env              = var.env
+#  env              = var.env
   private_key_path = var.private_key_path
   public_key_path  = var.public_key_path
   db_disk_image    = var.db_disk_image
