@@ -2,7 +2,7 @@
 
 while ps ax | grep -i [a]pt ; do sleep 10; done;
 
-set -e
+#set -e
 APP_DIR=${1:-$HOME}
 echo "install git"
 sudo apt-get install -y git
